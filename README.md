@@ -1,5 +1,8 @@
 # InvalidRecordFinder
 
+[![Gem Version](https://badge.fury.io/rb/invalid_record_finder.svg)](http://badge.fury.io/rb/invalid_record_finder)
+[![Build Status](https://github.com/betterplace/invalid_record_finder/workflows/tests/badge.svg)](https://github.com/betterplace/invalid_record_finder/actions)
+
 Find entries in your database that no longer pass your validations.
 
 These poor little records need your help because they can't be updated anymore 😢
