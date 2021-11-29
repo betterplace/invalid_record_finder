@@ -16,7 +16,7 @@ A common use case is to periodically check all records and send mails if invalid
 
 Models must inherit from `ApplicationRecord` and `ActionMailer` must be configured for the mail sending to work.
 
-```
+```ruby
 # my_regular_task.rake
 
 result = InvalidRecordFinder.call
@@ -27,13 +27,13 @@ result.mail(from: 'noreply@myapp.com', to: 'devs@myapp.com')
 
 To check only specific models or scopes:
 
-```
+```ruby
 result = InvalidRecordFinder.call(models: [ImportantModel])
 ```
 
 To check all models except some:
 
-```
+```ruby
 result = InvalidRecordFinder.call(
   ignored_models:     [HugeTableThing, IrrelevantThing],
   ignored_namespaces: 'Legacy::',
@@ -46,7 +46,7 @@ Findings can also be put into CSV files.
 
 The files will be in `Rails.root.join('tmp', 'invalid_records')` by default.
 
-```
+```ruby
 InvalidRecordFinder.call.save_csvs
 ```
 
@@ -54,7 +54,7 @@ Per default, there is one mail or CSV for each model with invalid records.
 
 To send just a single mail or write a single CSV:
 
-```
+```ruby
 result = InvalidRecordFinder.call.flatten
 result.mail(from: 'noreply@myapp.com', to: 'devs@myapp.com')
 result.save_csvs(to: my_custom_dir)
