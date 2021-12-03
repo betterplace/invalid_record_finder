@@ -43,6 +43,16 @@ result = InvalidRecordFinder.call(
 )
 ```
 
+### Checking in batches
+
+The `models:` keyword accepts scopes, so you can do stuff like:
+
+```ruby
+result = InvalidRecordFinder.call(
+  models: HugeTableThing.last(10_000),
+)
+```
+
 ### Other options
 
 Findings can also be put into CSV files.
