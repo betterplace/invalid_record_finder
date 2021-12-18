@@ -27,6 +27,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'activerecord', '>= 5.0'
-  spec.add_dependency 'fortschritt', '~> 0.3'
+  spec.add_dependency 'fortschritt', '>= 0.3', '< 2'
   spec.add_dependency 'tabulo', '~> 2.7'
 end
