@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [1.0.2] - 2022-01-11
+
 ### Fixed
 
 - Fixed report table layout for models with a UUID id

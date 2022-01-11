@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    invalid_record_finder (1.0.1)
+    invalid_record_finder (1.0.2)
       activerecord (>= 5.0)
       fortschritt (>= 0.3, < 2)
       tabulo (~> 2.8)
