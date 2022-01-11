@@ -8,7 +8,8 @@ module InvalidRecordFinder
       @field       = field
       @field_value = record[field]
       @message     = message
-      @id          = record.id
+      id           = record[record.class.primary_key]
+      @id          = id.respond_to?(:tr) ? id.tr('-', '') : id
     end
 
     def to_a

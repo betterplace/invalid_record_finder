@@ -49,6 +49,19 @@ describe InvalidRecordFinder::FindingsList do
       EOS
     end
 
+    it 'does not line-wrap UUIDs' do
+      record_with_error = Blog.new(id: '123e4567e89b12d3a456426614174000')
+      list.add_if_invalid(record_with_error)
+      finding = list[0]
+      long_string = 'a veryveryvery veryveryveryveryvery long string'
+      expect(finding).to receive(:model).at_least(:once).and_return long_string
+      expect(finding).to receive(:field).at_least(:once).and_return long_string
+      expect(finding).to receive(:field_value).at_least(:once).and_return long_string
+      expect(finding).to receive(:message).at_least(:once).and_return long_string
+
+      expect(list.to_table.to_s).to include('123e4567e89b12d3a456426614174000')
+    end
+
     it 'only returns the first 100 errors' do
       200.times { list.add_if_invalid(record_with_error) }
       expect(list.to_table.to_s.lines.count).to eq 104

@@ -3,7 +3,7 @@ ActiveRecord::Schema.define(version: 20321110173325) do
     t.string 'first_name'
   end
 
-  create_table 'blogs', force: :cascade do |t|
+  create_table 'blogs', force: :cascade, id: :uuid do |t|
     t.string 'title'
   end
 end

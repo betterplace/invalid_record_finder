@@ -26,7 +26,9 @@ module InvalidRecordFinder
     require 'tabulo'
 
     def to_table
-      Tabulo::Table.new(findings.first(100), *headers, align_header: :left).pack
+      Tabulo::Table.new(findings.first(100), *headers, align_header: :left)
+        .autosize_columns
+        .shrink_to(:screen, except: :id)
     end
 
     require 'csv'
